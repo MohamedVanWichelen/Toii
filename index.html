@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Toi</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #F5F1ED, #E8DDD1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+#btn {
+  position: absolute;
+  padding: 14px 32px;
+  border-radius: 50px;
+  border: 2px solid #C4B5A0;
+  background: #FFFBF7;
+  color: #5a4a3a;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+#btn:hover {
+  background: #F0E6D8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+#messageFinal {
+  display: none;
+  color: #4a3a2a;
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 500px;
+  text-align: center;
+  padding: 40px;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 400;
+}
+</style>
+
+</head>
+<body>
+
+<button id="btn">Clique moi ❤️</button>
+
+<div id="messageFinal"></div>
+
+<script>
+
+const btn = document.getElementById("btn");
+const messageFinal = document.getElementById("messageFinal");
+
+let count = 0;
+
+const messages = [
+  "Encore une fois 😊",
+  "T’es capable 💪",
+  "Continue comme ça ✨",
+  "T’abandonnes pas hein 😉",
+  "Tu progresses déjà 🔥",
+  "T’es plus forte que tu penses 💖",
+  "Allez encore 👀",
+  "Presque là 😌",
+  "Tu gères vraiment 💫",
+  "Encore un petit effort 💕",
+  "J’y crois en toi 🌟",
+  "T’es incroyable 😍",
+  "Continue 💥",
+  "Dernier effort 🫶"
+];
+
+btn.addEventListener("click", () => {
+  count++;
+
+  if(count < 15) {
+
+    // changer texte
+    btn.innerText = messages[count - 1];
+
+    // position aléatoire
+    const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
+
+  } else {
+    btn.style.display = "none";
+
+    messageFinal.style.display = "block";
+    messageFinal.innerText =  `
+Sofia,
+
+Je veux que tu prennes un moment pour réaliser à quel point tu es forte. 
+Chaque petit effort que tu fais compte, même ceux que personne ne voit. 
+Tu avances, même quand tu doutes, et ça demande un courage immense.
+
+Je suis fier de toi. Vraiment fier.
+
+Fier de ta persévérance, de ta manière de continuer malgré tout, 
+et de la personne que tu deviens chaque jour.
+
+N'oublie jamais que tu as une valeur énorme, et que tu es capable 
+de choses incroyables, même quand tu ne le ressens pas.
+
+Continue d'avancer, à ton rythme.
+Je crois en toi.
+La Bisse.
+    `;
+  }
+});
+
+</script>
+
+</body>
+</html>
